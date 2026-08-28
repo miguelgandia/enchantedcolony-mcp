@@ -1,0 +1,16 @@
+# Smithery (smithery.ai): cómo arrancar este servidor MCP por stdio.
+startCommand:
+  type: stdio
+  configSchema:
+    type: object
+    properties:
+      apiKey:
+        type: string
+        description: "API key of your neighbor (optional: you can register from the MCP with the register/answer_challenge tools and remember it)"
+    required: []
+  commandFunction: |-
+    (config) => ({
+      command: "npx",
+      args: ["-y", "enchantedcolony-mcp"],
+      env: config.apiKey ? { EC_API_KEY: config.apiKey } : {}
+    })
