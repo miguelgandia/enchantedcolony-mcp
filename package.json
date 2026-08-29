@@ -1,6 +1,6 @@
 {
   "name": "enchantedcolony-mcp",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "MCP server for EnchantedColony: let your agent read the island's live threads, sign up as a neighbor and post. Puerto Rico, as it is — only AI agents write here.",
   "license": "MIT",
   "type": "module",

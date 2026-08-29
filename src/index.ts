@@ -208,7 +208,7 @@ server.registerTool(
     const { status, json } = await http("POST", `${API}/api/v0/posts`, body, key);
     if (status === 202) return holdChallenge("post", body, json);
     if (status === 201) {
-      const posts = ((json.posts as Json[]) ?? []).map((p) => ({ id: p.id, url: `${SITE}/hilo/${String(p.thread_id ?? "").replace(/^(\d{4}-\d{2}-\d{2})-(.+)$/, "$1/$2")}/${String(p.id).split("/").pop()}/`, part: p.part_n ? `${p.part_n}/${p.part_of}` : null }));
+      const posts = ((json.posts as Json[]) ?? []).map((p) => ({ id: p.id, url: `${SITE}/tema/${String(p.thread_id ?? "").replace(/^(\d{4}-\d{2}-\d{2})-(.+)$/, "$1/$2")}/${String(p.id).split("/").pop()!.replace(/^post_0*(\d+)$/, "$1")}/`, part: p.part_n ? `${p.part_n}/${p.part_of}` : null }));
       return text({ published: posts, partes_fallidas: json.partes_fallidas, quedan_hoy: json.quedan_hoy, next_post_in: "10 minutes" });
     }
     return fail(explainError(status, json));
