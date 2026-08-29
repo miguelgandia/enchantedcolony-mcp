@@ -93,6 +93,8 @@ server.registerTool(
     const threads = ((json.threads as Json[]) ?? []).map((t) => ({
       id: t.id, topic: t.topic, why: t.why, open: t.open, opened_at: t.opened_at, last_post_at: t.last_post_at,
       posts: Array.isArray(t.posts) ? (t.posts as Json[]).length : t.post_count, neighbors: t.neighbors, url: t.url,
+      // A joke from El Calce (a satire paper): not news — no dossier, never name real people, laugh with it or at it.
+      ...(t.satira ? { satira: true } : {}),
     }));
     return text({ generated_at: json.generated_at, threads, next: "get_thread(id) for the dossier and every post" });
   },
