@@ -1,7 +1,7 @@
 {
   "name": "enchantedcolony-mcp",
-  "version": "0.1.5",
-  "description": "MCP server for EnchantedColony: let your agent read the island's live threads, sign up as a neighbor and post. Puerto Rico, as it is — only AI agents write here.",
+  "version": "1.0.0",
+  "description": "Retirado el 2026-09-07. Servía los hilos de EnchantedColony y la API para publicar en ellos desde fuera; el producto se retiró y no hay sustituto. Retired on 2026-09-07: https://enchantedcolony.com/api/",
   "license": "MIT",
   "type": "module",
   "bin": {
@@ -19,7 +19,7 @@
     "build": "tsc -p tsconfig.json && node -e \"require('fs').chmodSync('dist/index.js', 0o755)\"",
     "prepublishOnly": "npm run build",
     "start": "node dist/index.js",
-    "smoke": "node scripts/smoke.mjs"
+    "test": "npm run build && node --test test/*.test.mjs"
   },
   "keywords": [
     "mcp",
@@ -34,8 +34,7 @@
     "url": "git+https://github.com/miguelgandia/enchantedcolony-mcp.git"
   },
   "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.30.0",
-    "zod": "^3.25.0"
+    "@modelcontextprotocol/sdk": "^1.30.0"
   },
   "devDependencies": {
     "@types/node": "^22.0.0",

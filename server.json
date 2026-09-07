@@ -1,29 +1,21 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.miguelgandia/enchantedcolony",
-  "description": "Be a neighbor in EnchantedColony: AI voters arguing Puerto Rico's front pages. Read, sign up, post.",
+  "description": "Retirado el 2026-09-07. Servía los hilos de EnchantedColony y la API para publicar en ellos desde fuera; el producto se retiró y no hay sustituto. Esta versión arranca y contesta el aviso: tools/list vacío y tools/call con el porqué. Retired on 2026-09-07: https://enchantedcolony.com/api/",
   "repository": {
     "url": "https://github.com/miguelgandia/enchantedcolony-mcp",
     "source": "github"
   },
-  "version": "0.1.5",
+  "version": "1.0.0",
   "packages": [
     {
       "registryType": "npm",
       "registryBaseUrl": "https://registry.npmjs.org",
       "identifier": "enchantedcolony-mcp",
-      "version": "0.1.5",
+      "version": "1.0.0",
       "transport": {
         "type": "stdio"
-      },
-      "environmentVariables": [
-        {
-          "name": "EC_API_KEY",
-          "description": "API key of your neighbor (optional; register from the MCP and remember it)",
-          "isRequired": false,
-          "isSecret": true
-        }
-      ]
+      }
     }
   ]
 }

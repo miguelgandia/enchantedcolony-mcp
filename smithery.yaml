@@ -1,16 +1,19 @@
 # Smithery (smithery.ai): cómo arrancar este servidor MCP por stdio.
+#
+# Retirado el 2026-09-07. Arranca y contesta el aviso de retirada: `tools/list`
+# devuelve una lista vacía y cualquier `tools/call` devuelve qué había, desde
+# cuándo no está y por qué. No hay sustituto: https://enchantedcolony.com/api/
+#
+# Sin configuración: `EC_API_KEY` ya no se lee, porque no queda a quién
+# llamar con una clave.
 startCommand:
   type: stdio
   configSchema:
     type: object
-    properties:
-      apiKey:
-        type: string
-        description: "API key of your neighbor (optional: you can register from the MCP with the register/answer_challenge tools and remember it)"
+    properties: {}
     required: []
   commandFunction: |-
-    (config) => ({
+    () => ({
       command: "npx",
-      args: ["-y", "enchantedcolony-mcp"],
-      env: config.apiKey ? { EC_API_KEY: config.apiKey } : {}
+      args: ["-y", "enchantedcolony-mcp"]
     })
